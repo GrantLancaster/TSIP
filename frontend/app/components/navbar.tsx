@@ -4,8 +4,8 @@ export default function NavBar() {
 
   return (
     <>
-      <div className="flex justify-center absolute top-0 w-full">
-          <nav className="flex justify-between w-[85%] max-w-6xl h-14 bg-black/0 rounded-full">
+      <div className="flex justify-center sticky top-0 w-full bg-slate-900 z-10">
+          <nav className="flex justify-between w-[85%] max-w-6xl h-14 rounded-full">
             <ul className=" text-base flex justify-center items-center gap-8">
               <li>
                 <svg width="49" height="40" viewBox="0 0 49 40" fill="none" xmlns="http://www.w3.org/2000/svg">
