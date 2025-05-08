@@ -1,9 +1,19 @@
-import { generateNum1To100 } from "~/utilities/number_generation";
+import { randomByWeight } from "~/utilities/number_generation";
+import { standardChestTable } from "~/utilities/drop_tables";
+import { Standard_Chest } from "~/utilities/object_classes/chests";
 
 export default function Play_Field({chest}:{chest?:string}) {
 
-  function handleChestClick() {
-    console.log("I hit the chest");
+  const testChest = new Standard_Chest(standardChestTable);
+  let outcome: string = "";
+
+  function handleClick() {
+    testChest.health -=1;
+    if (testChest.health <= 0) {
+      outcome = testChest.onBreak();
+      console.log(outcome);
+    }
+
   }
 
   return (
@@ -12,7 +22,7 @@ export default function Play_Field({chest}:{chest?:string}) {
       <div className="flex justify-center flex-col items-center">
         <div
           className={`border-2 border-${"white"}-500 h-[150px] w-[250px] rounded-lg`}
-          onClick={()=>{console.log(generateNum1To100())}}>
+          onClick={()=>{handleClick()}}>
 
         </div>
         <p className="p-8">{chest || "Mythic Chest"}</p>

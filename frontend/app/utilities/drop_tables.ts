@@ -1,16 +1,8 @@
 // LOOK UP WEIGHTED NUMBER GENERATION FOR HOW TO MAKE THIS WORK.
 
+export const standardChestTable: any = [
+  ["Iron Sword", "War Bow", "Battle Axe", "Gilded  Dagger"], // Drops in table
+  [40, 16, 20, 6] // Weights for table drops
+];
 
-export function rollNewChest(generatedNumber:number) {
-  if (generatedNumber < 50) {
-    return "Standard Chest";
-  } else if (generatedNumber >= 50 && generatedNumber < 75) {
-    return "Rare Chest";
-  } else if (generatedNumber >=75 && generatedNumber < 85) {
-    return "Magical Chest";
-  } else if (generatedNumber >= 85 && generatedNumber < 90) {
-    return "Mythic Chest";
-  } else if (generatedNumber >=90) {
-    return "Legendary CHest";
-  }
-}
+export const rareChestTable: any = [[],[]];
