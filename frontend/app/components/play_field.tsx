@@ -1,4 +1,4 @@
-
+import { generateNum1To100 } from "~/utilities/number_generation";
 
 export default function Play_Field({chest}:{chest?:string}) {
 
@@ -12,7 +12,7 @@ export default function Play_Field({chest}:{chest?:string}) {
       <div className="flex justify-center flex-col items-center">
         <div
           className={`border-2 border-${"white"}-500 h-[150px] w-[250px] rounded-lg`}
-          onClick={()=>{handleChestClick()}}>
+          onClick={()=>{console.log(generateNum1To100())}}>
 
         </div>
         <p className="p-8">{chest || "Mythic Chest"}</p>
