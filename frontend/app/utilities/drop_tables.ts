@@ -6,3 +6,9 @@ export const standardChestTable: any = [
 ];
 
 export const rareChestTable: any = [[],[]];
+
+
+export const enemyChangeTable: any = [[
+  "Basic", "Rare", "Epic"],
+  [60, 20, 8]
+];

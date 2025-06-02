@@ -5,7 +5,7 @@ THIS COMPONENT WILL NEED
 - hover over the image to see that gear's stats (this will be simple at first->just attack or luck up)
 */
 
-export default function Equipment_Panel() {
+export default function Equipment_Panel({player, setPlayer}:{player: any; setPlayer: any;}) {
 
   return (
     <div className="border-2 border-violet-500 rounded-lg p-[0.5em] w-[200px] h-[400px]">

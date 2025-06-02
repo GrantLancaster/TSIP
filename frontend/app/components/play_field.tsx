@@ -1,10 +1,13 @@
 import { randomByWeight } from "~/utilities/number_generation";
 import { standardChestTable } from "~/utilities/drop_tables";
 import { Standard_Chest } from "~/utilities/object_classes/chests";
-import { useState } from "react";
-import test from "~/routes/profile";
+import { Basic_Enemy } from "~/utilities/object_classes/enemies";
+import { attackEnemy } from "~/utilities/enemy_functions";
+import { rollNewEnemy } from "~/utilities/enemy_functions";
+import { openChest } from "~/utilities/chest_functions";
+import { useEffect, useState } from "react";
 
-export default function Play_Field({}:{}) {
+export default function Play_Field({player, setPlayer}:{player: any; setPlayer: any;}) {
   /*
     WHAT NEEDS TO HAPPEN: FLOW OF THIS PROGRAM
     1. user and updateUser are passed as props
@@ -16,22 +19,16 @@ export default function Play_Field({}:{}) {
     5. save the outcome to the user's inventory (probably and array, where items are objects).
   */
 
+  /*
+    Getting a hydration error here. Look into it to see why it is running rollNewEnemy() 
+    multiple times. It seems to run it twice, then throw an error because values don't match up.
+    There may be a useEffect somewhere that is causing the problems.
+  */
+
   const testChest = new Standard_Chest(standardChestTable);
-  const [chest, setChest] = useState<any>(testChest)
-  const [money, setMoney] = useState<number>(0);
-  let outcome: string = "";
-
-  function getMoney() {
-    setMoney(money + 1);
-  }
-
-  function openChest(chest:any) {
-    if (money >= chest.cost) {
-      setMoney(money - chest.cost);
-      let loot = chest.onBreak();
-      console.log(loot);
-    }
-  }
+  const starterEnemy = rollNewEnemy();
+  const [enemy, setEnemy] = useState<any>(starterEnemy);
+  const [chest, setChest] = useState<any>(testChest);
 
   return (
     <>
@@ -39,13 +36,13 @@ export default function Play_Field({}:{}) {
       <div className="flex justify-center flex-col items-center gap-4">
         <div
           className={`border-2 border-${"white"}-500 h-[150px] w-[250px] rounded-lg`}
-          onClick={()=>{getMoney()}}>
+          onClick={()=>{attackEnemy(enemy, setEnemy, player, setPlayer)}}>
+            <p id="enemyName">{enemy.name}</p>
 
         </div>
-        <p className="p-8" onClick={()=>{openChest(testChest)}}>
+        <p className="p-8" onClick={()=>{openChest(testChest, player, setPlayer)}}>
           {chest.name || "Mythic Chest"}: {chest.cost + " gold"}
         </p>
-        <p>{money}</p>
       </div>
     </div>
     </>

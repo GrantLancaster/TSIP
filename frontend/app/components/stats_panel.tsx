@@ -5,15 +5,21 @@ This just displays user stats, so math can potentially be done somewhere else, a
 numbers simply be displayed in this component.
 */
 
-export default function Stats_Panel({}:{}) {
+import { useEffect, useState } from "react"
+
+export default function Stats_Panel({player, setPlayer}:{player: any; setPlayer: any;}) {
+
+  useEffect (()=>{
+  });
 
   return (
     <div className="border-2 border-violet-500 rounded-lg p-[0.5em] w-[200px] h-[400px]">
-      <h1 className="font-bold">Player Stats</h1>
+      <h1 className="font-bold">{player.name}'s Stats</h1>
       <ul>
-        <li>Attack Power:</li>
-        <li>Luck:</li>
-        <li>Gold Find:</li>
+        <li>Attack Power: {player.attack_power}</li>
+        <li>Luck: {player.luck}</li>
+        <li>Gold Find: {player.gold_find}</li>
+        <li>Current Gold: <span className="text-amber-500">{player.gold}</span></li>
       </ul>
     </div>
   )
