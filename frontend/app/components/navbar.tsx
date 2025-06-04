@@ -16,7 +16,7 @@ export default function NavBar() {
             </ul>
 
             <ul className="text-base flex justify-center items-center gap-16">
-              <li className="px-2 hover:border-b-4 h-[28px] border-b-violet-500 text-center">Play</li>
+              <li className="px-2 hover:border-b-4 h-[28px] border-b-violet-500 text-center">Battle</li>
               <li className="px-2 hover:border-b-4 h-[28px] border-b-violet-500 text-center">Inventory</li>
               <li className="px-2 hover:border-b-4 h-[28px] border-b-violet-500 text-center">Shop</li>
             </ul>

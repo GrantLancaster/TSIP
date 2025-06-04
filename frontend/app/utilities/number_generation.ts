@@ -1,12 +1,7 @@
 
-export function generateNum1To100() {
-  const randomNumber:number = Math.floor(Math.random()*100);
-  return randomNumber;
-}
-
-export function generateNum1To1000() {
-  const randomNumber:number = Math.floor(Math.random()*1000);
-  return randomNumber;
+export function randomBetweenTwoValues(min:number, max:number) {
+  const value = Math.floor(Math.random() * (max - min) + min);
+  return value
 }
 
 export function randomByWeight(table: string[], weights: number[]) {
@@ -17,10 +12,8 @@ export function randomByWeight(table: string[], weights: number[]) {
   weights.forEach(weight => {
     sumOfWeights += weight;
   });
-  console.log("sum: ", sumOfWeights);
 
   const randomNumber: number = Math.floor(Math.random()*sumOfWeights);
-  console.log("random: ", randomNumber);
 
   let pointer: number = 0;
   for (let i=0; i < weights.length; i++) {

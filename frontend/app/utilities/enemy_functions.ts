@@ -20,7 +20,7 @@ export function rollNewEnemy() {
 }
 
 export function attackEnemy(enemy: any, setEnemy: any, player: any, setPlayer:any) {
-  enemy.health -= (1 + player.attack_power);
+  enemy.health -= player.attack_power;
   if (enemy.health <= 0) {
     setPlayer({...player, gold: player.gold + enemy.gold_drop});
     setEnemy(rollNewEnemy());

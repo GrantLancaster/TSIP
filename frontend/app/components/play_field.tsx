@@ -19,24 +19,27 @@ export default function Play_Field({player, setPlayer}:{player: any; setPlayer: 
     5. save the outcome to the user's inventory (probably and array, where items are objects).
   */
 
-  /*
-    Getting a hydration error here. Look into it to see why it is running rollNewEnemy() 
-    multiple times. It seems to run it twice, then throw an error because values don't match up.
-    There may be a useEffect somewhere that is causing the problems.
-  */
+    //Chest will be pulled out into a shop interface.
+
+    //
 
   const testChest = new Standard_Chest(standardChestTable);
-  const starterEnemy = rollNewEnemy();
+  const testEnemy = new Basic_Enemy();
+  const starterEnemy = testEnemy;
   const [enemy, setEnemy] = useState<any>(starterEnemy);
   const [chest, setChest] = useState<any>(testChest);
+
+  function handleClick() {
+    attackEnemy(enemy, setEnemy, player, setPlayer);
+  }
 
   return (
     <>
     <div className="flex items-center justify-center mt-16 h-[500px] w-1/2 max-w-[1440px] bg-slate-900">
       <div className="flex justify-center flex-col items-center gap-4">
         <div
-          className={`border-2 border-${"white"}-500 h-[150px] w-[250px] rounded-lg`}
-          onClick={()=>{attackEnemy(enemy, setEnemy, player, setPlayer)}}>
+          className={`border-2 border-"white"-500 h-[150px] w-[250px] rounded-lg`}
+          onClick={(e)=>{handleClick()}}>
             <p id="enemyName">{enemy.name}</p>
 
         </div>
