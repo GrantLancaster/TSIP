@@ -4,7 +4,7 @@ export function randomBetweenTwoValues(min:number, max:number) {
   return value
 }
 
-export function randomByWeight(table: string[], weights: number[]) {
+export function randomByWeight(table: any, weights: number[]) {
   // This requires two parameters:
   // the first is the loot table to calculate from
   // the second is the weights for each part of each table.

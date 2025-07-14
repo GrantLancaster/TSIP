@@ -12,3 +12,13 @@ export const enemyChangeTable: any = [[
   "Basic", "Rare", "Epic"],
   [60, 20, 8]
 ];
+
+export const itemRarityTable: any = [
+  ["Common", "Uncommon", "Rare", "Epic", "Legendary"],
+  [60, 40, 25, 18, 3]
+];
+
+export const hasADropTable: any = [
+  [1,0],
+  [10,90]
+];

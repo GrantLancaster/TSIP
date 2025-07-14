@@ -4,6 +4,7 @@ import Post from "~/components/post";
 import Play_Field from "~/components/play_field";
 import Stats_Panel from "~/components/stats_panel";
 import Equipment_Panel from "~/components/equipment_panel";
+import Inventory_Panel from "~/components/inventory_panel";
 import { useState } from "react";
 
 
@@ -27,13 +28,7 @@ export function Welcome({player, setPlayer}:{player: any; setPlayer: any;}) {
           showInventory={showInventory} 
           setShowInventory={setShowInventory} 
         />
-        {showInventory && 
-        <>
-          <div className="absolute bg-black opacity-50 h-full w-full"></div>
-          <div className="rounded-lg h-[80%] w-[80%] absolute m-16 bg-red-500">
-            <p onClick={()=>{setShowInventory(false)}}>close</p>
-          </div>
-        </>}
+        {showInventory && <Inventory_Panel player={player} setPlayer={setPlayer} showInventory={showInventory} setShowInventory={setShowInventory} />}
       </div>
 
     </>
